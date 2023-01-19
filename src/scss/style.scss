@@ -8,3 +8,59 @@
 @import 'libs/bootstrap';
 
 @import './main';
+
+
+.valid-wrap {
+  position: relative;
+  margin-bottom: 1.5rem;
+
+  &.valid-input::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('../img/validation-check/check.svg') center center/cover no-repeat;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+  }
+
+  &.valid-input input {
+    border: 1px solid #7aef78
+  }
+
+  &.no-valid-input::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('../img/validation-check/xmark.svg') center center/cover no-repeat;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+  }
+
+  &.no-valid-input input {
+    border: 1px solid #ff85e4
+  }
+
+}
+
+.consultation {
+  .valid-wrap:last-child {
+    width: 100%;
+  }
+  
+}
+
+.no-valid-message {
+  position: absolute;
+  width: 100%;
+  display: block;
+  text-align: center;
+  bottom: -1.5rem;
+  color: #ff85e4;
+  font-size: 10px;
+}

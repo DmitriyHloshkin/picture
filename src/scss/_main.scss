@@ -812,13 +812,18 @@ h4 {
 }
 .feedback {
   background-color: #f7e7e6;
-  padding: 9rem 0;
+  // padding: 9rem 0;
+
+  &-slider {
+    height: 460px;
+  }
 }
 .feedback-slider-item {
   padding-bottom: 5rem;
 }
 .feedback-block {
   position: relative;
+  padding-left: 50px;
 }
 .feedback-block .button-order {
   position: absolute;
@@ -935,11 +940,11 @@ h4 {
   flex-wrap: wrap;
 }
 .consultation input {
-  width: 30%;
+  //! width: 30%; 
   padding: 1.5rem 4rem;
   border: none;
   border-radius: 50px;
-  margin-bottom: 3rem;
+  // margin-bottom: 3rem;
 }
 .consultation input::placeholder {
   color: black;
@@ -1014,7 +1019,7 @@ h4 {
   border-radius: 50px;
   background-color: #ffffff;
   padding: 1.5rem;
-  margin-bottom: 2.5rem;
+  // margin-bottom: 2.5rem;
   width: 100%;
   color: inherit;
   resize: none;
@@ -1117,7 +1122,7 @@ h4 {
 
 }
 .popup-design input[name="name"] {
-  margin-top: 2rem;
+  // margin-top: 2rem;
 }
 .popup-design .file_upload {
   position: relative;
@@ -1194,7 +1199,7 @@ h4 {
   border-radius: 50px;
   background-color: #ffffff;
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  // margin-bottom: 1.5rem;
   width: 100%;
   color: inherit;
   resize: none;

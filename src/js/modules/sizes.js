@@ -4,7 +4,7 @@ const sizes = () => {
 
     sizesElements.forEach( blockSizes => {
 
-      blockSizes.addEventListener('mousemove', e => changeImg(e, 'show'));
+      blockSizes.addEventListener('mouseenter', e => changeImg(e, 'show'));
       blockSizes.addEventListener('mouseleave', e => changeImg(e, 'hide'));
 
     });

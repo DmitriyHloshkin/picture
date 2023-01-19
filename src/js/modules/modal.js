@@ -1,4 +1,6 @@
 import { calcWithScroll } from './general.js';
+import { resetForm } from './forms.js';
+
   const statePopups = {
     showPopupGift: true,
     showPopupConsultation: true,
@@ -70,7 +72,7 @@ const changeModal = (modal, action = 'close') => {
       modal.classList.remove('fadeOut');
       modal.classList.add('fadeIn', 'show');
       statePopups.showPopupGift = false;
-      statePopups.timerPopupConsultation = false;
+      statePopups.showPopupConsultation = false;
 
       document.body.style.cssText = `overflow: hidden;
                                     margin-right: ${calcWithScroll()}px`;
@@ -107,7 +109,9 @@ const changeModal = (modal, action = 'close') => {
                                         margin-right: 0`;
 
         giftImage.style.right = `calc(${currentRightPositionGift} - ${calcWithScroll()}px)`;
+        resetForm(modal.querySelector('form'));
       });
+      
 
       break;
   }
