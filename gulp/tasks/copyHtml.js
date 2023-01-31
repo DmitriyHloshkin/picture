@@ -2,7 +2,7 @@ export const copyHtml = () => {
 	const { gulp, path, plugins, isBuild, isDev } = global.app;
 
 	const fileinclude = plugins.fileinclude,
-				webpHtml = plugins.webpHtml,
+				// webpHtml = plugins.webpHtml,
 				notify = plugins.notify,
 				plumber = plugins.plumber,
         browserSync = plugins.browserSync,
@@ -16,7 +16,7 @@ export const copyHtml = () => {
         message: 'Error: <%= error.message %>',
       })))
     .pipe(fileinclude())
-    .pipe(webpHtml())
+    // .pipe(webpHtml())
     .pipe(ifPlugin(isBuild, htmlmin({ collapseWhitespace: true })))
     .pipe(gulp.dest(path.build.html))
     .pipe(browserSync.stream());

@@ -4,7 +4,7 @@ export const copyImg = () => {
 	const notify = plugins.notify,
 				plumber = plugins.plumber,
         browserSync = plugins.browserSync,
-        gulWebp = plugins.gulWebp,
+        // gulWebp = plugins.gulWebp,
         imagmin = plugins.imagmin,
         newer = plugins.newer;
 
@@ -15,9 +15,9 @@ export const copyImg = () => {
         message: 'Error: <%= error.message %>',
       })))
     .pipe(newer(path.build.images))
-    .pipe(gulWebp())
-    .pipe(gulp.dest(path.build.images))
-    .pipe(gulp.src(path.src.images))
+    // .pipe(gulWebp())
+    // .pipe(gulp.dest(path.build.images))
+    // .pipe(gulp.src(path.src.images))
     .pipe(newer(path.build.images))
     .pipe(imagmin({
       progressive: true,

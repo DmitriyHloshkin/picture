@@ -11,8 +11,12 @@ const styles = () => {
         return strClass.startsWith('hidden'); 
       });
 
+      parentBlocks.classList.add('animated', 'fadeInUp', 'wow');
+
+
       removeClasses.forEach( hiddenClass => {
-        parentBlocks.classList.remove(hiddenClass);
+        parentBlocks.classList.remove(hiddenClass, 'style-2');
+        parentBlocks.classList.add('col-sm-3', 'col-sm-offset-0', 'col-xs-10', 'col-xs-offset-1');
       });
 
     });

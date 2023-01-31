@@ -27,7 +27,27 @@ const sliders = ({ slidesSelector, wrappSliderSelector, dir, prev, next, timeAut
 
     btnNext.addEventListener('click', () => changeSlide('next'));
     btnPrev.addEventListener('click', () => changeSlide('prev'));     
-    
+
+    let touchStart, touchEnd;
+
+    wrapper.addEventListener('touchstart', e => {
+      touchStart = e.touches[0].pageX;
+      clearInterval(idSliderTimer); 
+    });
+
+    wrapper.addEventListener("touchend", function (e) {
+      touchEnd = e.changedTouches[0].pageX;
+
+      if (touchEnd - touchStart > 0) {
+        changeSlide('next'); 
+      } else if (touchEnd - touchStart < 0) {
+        changeSlide('prev');
+      }
+
+      startTimerSlider();
+      touchStart = touchEnd = null;
+  });
+
     const changeSlide = (dir) => {
       let classAnimation; 
 
@@ -48,7 +68,6 @@ const sliders = ({ slidesSelector, wrappSliderSelector, dir, prev, next, timeAut
   function showSlides(n, classAnimation = mainClassAnimation) {
     if (n > slideItems.length) slideIndex = 1;
     if (n < 1 ) slideIndex = slideItems.length;
-
 
     slideItems.forEach( slide => {
       slide.classList.add('animated');

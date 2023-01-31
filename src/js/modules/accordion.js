@@ -1,33 +1,28 @@
-const accordion = ({ questionsSelector, answerSelector }) => {
-  const accordionQuestions = document.querySelectorAll(questionsSelector),
-        accordionAnswer = document.querySelectorAll(answerSelector);
+const accordion = (questionsSelector) => {
+  const accordionQuestions = document.querySelectorAll(questionsSelector);
 
-    hideAnswers();
+  accordionQuestions.forEach(question => {
+    question.addEventListener('click', function() {
 
-  accordionQuestions.forEach( question => {
-    question.addEventListener('click', () => {
-      const answear = question.parentElement.nextElementSibling;
-      hideAnswers();
-      showAnswers(answear);
+      accordionQuestions.forEach(question => {
+        if(question !== this) {
+          question.classList.remove('selected-question');
+          question.nextElementSibling.classList.remove('active-content');
+          question.nextElementSibling.style.maxHeight = '0px';
+        }
+      });
 
-    });      
-  });
+      this.classList.toggle('selected-question');
+      this.nextElementSibling.classList.toggle('active-content');
+      
+      if(this.classList.contains('selected-question')) {
+        this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 160 + 'px';      
+      } else {
+        this.nextElementSibling.style.maxHeight = '0px';
+      }
 
-
-  function hideAnswers() {
-    accordionAnswer.forEach(answer => {
-      answer.classList.add('animated');
-      answer.classList.add('fadeInDown');
-      answer.style.display = 'none';
-      answer.style.overflow = 'hiden';
     });
-  }
-
-  function showAnswers(answear) {
-    if (answear) answear.style.display = 'block';
-    
-  }
-
+  });
   
 };
 

@@ -59,9 +59,7 @@ import { resetForm } from './forms.js';
     modalSelector: '.popup-gift',
   });
 
-
 };
-
 
 const changeModal = (modal, action = 'close') => {
   const giftImage = document.querySelector('.fixed-gift'),
@@ -81,6 +79,7 @@ const changeModal = (modal, action = 'close') => {
       if (modal.matches('.popup-gift')) {
           const giftImg = document.querySelector('.fixed-gift');
                 giftImg.classList.remove("infinite");
+                giftImg.classList.remove("pulse");
                 giftImg.classList.add("fadeOut");
 
           const animationFadeOut = giftImg.getAnimations().find(animation => {
@@ -112,7 +111,6 @@ const changeModal = (modal, action = 'close') => {
         resetForm(modal.querySelector('form'));
       });
       
-
       break;
   }
 

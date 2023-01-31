@@ -8,7 +8,7 @@ export const copyScss = () => {
         sass = plugins.sass,
         autoprefixer = plugins.autoprefixer,
         cleanCss = plugins.cleanCss,
-        webpcss = plugins.webpcss,
+        // webpcss = plugins.webpcss,
         cssMediaGroup = plugins.cssMediaGroup,
         ifPlugin = plugins.ifPlugin;
 
@@ -21,10 +21,10 @@ export const copyScss = () => {
     .pipe(ifPlugin(isBuild, sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError)))
     .pipe(ifPlugin(isDev, sass.sync({ outputStyle: 'expanded' }).on('error', sass.logError)))
     .pipe(cssMediaGroup())
-    .pipe(webpcss({
-      webpClass: '.webp',
-      noWebpClass: '.no-webp'
-    }))
+    // .pipe(webpcss({
+    //   webpClass: '.webp',
+    //   noWebpClass: '.no-webp'
+    // }))
     .pipe(rename({
       dirname: "",
       basename: "style",
