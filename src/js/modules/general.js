@@ -58,7 +58,6 @@ const sendData = ({ form, url, stateForm, dataType = 'json', headersElem = {} })
 };
 
 const mask = ({ selectorInputMask, matrix = '+38 (___) ___ __ __' }) => {
-  
   const inputs = document.querySelectorAll(selectorInputMask);
 
   inputs.forEach( input => {
@@ -84,19 +83,19 @@ const mask = ({ selectorInputMask, matrix = '+38 (___) ___ __ __' }) => {
   };
 
   function createMask(event) {
-
+    
     let i = 0,
         def = matrix.replace(/\D/g, ''),
         value = this.value.replace(/\D/g, '');
+
+    if (this.value && this.value[1] !== matrix[1]) {
+      value = event.data ? value.substring(1) + event.data : def;
+    }
 
     if (def.length >= value.length) {
       value = def;
     }
     
-    if (this.value && this.value[1] !== matrix[1]) {
-      value = value.substring(1) + event.data;
-    }
-
     this.value = matrix.replace(/./g, function(a) {
     return /[_\d]/.test(a) && i < value.length ? value.charAt(i++) : i >= value.length ? '' : a;
     });
